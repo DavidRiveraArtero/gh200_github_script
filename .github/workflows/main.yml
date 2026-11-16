@@ -18,4 +18,5 @@ jobs:
           script: |
             const path = require('path')
             const scriptPath = path.resolve('./.github/scripts/script.js')
-            console.log(require(scriptPath)({context}))
+            const script = require(scriptPath)
+            console.log(await script({github, context}))
