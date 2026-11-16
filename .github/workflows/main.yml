@@ -17,6 +17,6 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const path = require('path')
-            const scriptPath = path.resolve('./.github/scripts/script.js')
+            const scriptPath = path.resolve('./.github/workflows/scripts/script.js')
             const script = require(scriptPath)
             console.log(await script({github, context}))
