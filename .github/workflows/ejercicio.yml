@@ -29,12 +29,21 @@ jobs:
         
         - name: Add issue to project board
           if: contains(github.event.issue.labels.*.name, 'bug')
-          uses: actions/github-script@0.8.0
+          uses: actions/github-script@v7
           with:
-            github-token: ${{secrets.GITHUB_TOKEN}}
+            github-token: ${{ secrets.PROJECT_PAT }}
             script: |
-                github.projects.createCard({
-                column_id: ${{secrets.columnID}},
-                content_id: context.payload.issue.id,
-                content_type: "Issue"
+                const query = `
+                mutation($projectId: ID!, $contentId: ID!) {
+                    addProjectV2ItemById(input: {projectId: $projectId, contentId: $contentId}) {
+                    item {
+                        id
+                    }
+                    }
+                }
+                `;
+            
+                await github.graphql(query, {
+                projectId: "PVT_kwDO...", // <-- Pon aquí el ID real de tu proyecto
+                contentId: context.payload.issue.node_id
                 });
