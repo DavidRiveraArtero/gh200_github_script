@@ -31,5 +31,5 @@ jobs:
           if: contains(github.event.issue.labels.*.name, 'bug')
           uses: actions/add-to-project@v1.0.2
           with:
-            project-url: https://github.com/DavidRiveraArtero/projects/1 # <-- Pon la URL de tu proyecto
+            project-url: https://github.com/users/DavidRiveraArtero/projects/1 # <-- Pon la URL de tu proyecto
             github-token: ${{ secrets.PROJECT_TOKEN }}
