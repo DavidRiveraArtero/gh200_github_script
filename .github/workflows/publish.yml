@@ -26,6 +26,7 @@ jobs:
           node-version: 12
           cache: "npm"
           registry-url: https://npm.pkg.github.com/
+          scope: "@davidriveraartero"
       - run: npm ci
       - run: npm publish
         env:
