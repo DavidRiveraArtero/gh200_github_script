@@ -1,7 +1,10 @@
 {
-  "name": "vite-project",
+  "name": "@DavidRiveraArtero/vite-project-prueba",
   "private": false,
   "version": "0.0.1",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",
