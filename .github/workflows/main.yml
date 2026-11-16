@@ -17,5 +17,5 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const path = require('path')
-            const scriptPath = path.resolve('./path/to/script.js')
+            const scriptPath = path.resolve('./.github/scripts/script.js')
             console.log(require(scriptPath)({context}))
